@@ -12,7 +12,7 @@ draft: false
 > 部分信息可能由AI生成
 
 ## 前言
-本篇仅讲述思路以及原理，具体配置流程见
+本篇仅讲述思路以及原理，具体配置流程见https://blog.songhappy.cn/posts/fksrun1 和 https://blog.songhappy.cn/posts/fksrun2/ <br>
 教学区使用的认证系统是[srun官网/防代理系统](https://srun.com/cn/products/proxy)，感觉非常脑残的一个认证系统
 宿舍区可以通过直接连接一个路由器来实现多设备共享网络，但是教学区为什么不行呢？
 我在教学区的可见设备就有1×Windows，1×Linux，1×Macos，1×平板，2×手机，有时候还要给内网Linux设备联网，通过手机开启热点是一个选择，但是延迟过高，速度过低，还访问不了内网资源，所以找到能够让所有设备都接入校园网的办法迫在眉睫
