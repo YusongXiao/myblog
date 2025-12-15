@@ -2,7 +2,7 @@
 title: 我的第一篇 Fuwari 博客
 published: 2025-12-15
 description: 这是一篇用 Fuwari + Astro 写的测试文章。
-image: ./cover.jpg
+image: ./cover.png
 tags: [随笔, Astro, Fuwari]
 category: 记录
 draft: false
