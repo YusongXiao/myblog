@@ -8,7 +8,6 @@ category: Blog
 draft: false
 ---
 
-
 > 注：本文以及本文引用的链接并未教程，只是个人学习的记录，该记录也并未损害任何人的权益
 > 部分信息可能由AI生成
 # 效果与限制
@@ -183,33 +182,36 @@ systemctl stop firewalld
 两种办法
 ### nat与bridge共存，即内网走自己的ip，公网走出口ip（推荐）
 
+先`ip a`看网卡名称
+记录自己DHCP得到的ip以及连接到网络的网关
+比如，这里的DHCP得到的ip是192.168.239.110，网关是192.168.239.33
+
 ```bash
-nano /etc/netplan/01-netcfg.yaml
+sudo nano /etc/netplan/01-netcfg.yaml
 ```
 填入以下信息
+> 网卡名称ens160替换成自己的，ip 192.168.239.110替换成DHCP得到的的，网关192.168.239.33替换成DHCP得到的，192.168.239.175替换成前面部署的机器的
 ```text
 network:
   version: 2
   renderer: networkd
   ethernets:
-    eth0:
+    ens160:
       dhcp4: no
       addresses:
-        - 192.168.239.110/24   #本地ip，最好替换为DHCP得到的ip地址
-      routes:
-        # 默认网关 (Default Gateway)
-        - to: default
-          via: 192.168.239.100
-        # 内网路由 1: 172.16.x.x - 172.31.x.x
-        - to: 172.16.0.0/12
-          via: 192.168.239.100
-        # 内网路由 2: 192.168.x.x (跨网段)
-        - to: 192.168.0.0/16
-          via: 192.168.239.100
-          # 重要：为了防止它跟本地(link-local)冲突，我们通常不需额外操作，
-          # Linux会自动优先匹配 scope link 的直连路由。
+        - 192.168.239.110/24
       nameservers:
-        addresses: [192.168.239.100, 8.8.8.8]
+        addresses: [192.168.239.175, 8.8.8.8]
+      routes:
+        # 外网默认出口：走 175
+        - to: default
+          via: 192.168.239.175
+
+        # 内网网段：走原本的路由器 33（不要写成本机IP！）
+        - to: 172.16.0.0/12
+          via: 192.168.239.33
+        - to: 192.168.0.0/16
+          via: 192.168.239.33
 ```
 
 ```bash
