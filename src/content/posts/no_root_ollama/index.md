@@ -43,7 +43,7 @@ which ollama
 ollama --version
 ```
 
-使用第8张显卡在11435端口运行
+使用第8张显卡在11434端口运行
 ```bash
-CUDA_VISIBLE_DEVICES=7 OLLAMA_HOST=0.0.0.0:11435 ollama serve
+CUDA_VISIBLE_DEVICES=7 OLLAMA_HOST=0.0.0.0:11434 ollama serve
 ```
