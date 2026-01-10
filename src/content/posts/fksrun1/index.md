@@ -214,6 +214,11 @@ network:
           via: 192.168.239.33
 ```
 
+```
+sudo chmod 600 /etc/netplan/01-netcfg.yaml
+sudo chmod 600 /etc/netplan/01-network-manager-all.yaml
+```
+
 ```bash
 sudo netplan apply
 ```
