@@ -190,7 +190,7 @@ systemctl stop firewalld
 sudo nano /etc/netplan/01-netcfg.yaml
 ```
 填入以下信息
-> 网卡名称ens160替换成自己的，ip 192.168.239.110替换成DHCP得到的的，网关192.168.239.33替换成DHCP得到的，192.168.239.175替换成前面部署的机器的
+> 网卡名称ens160替换成自己的，本机ip 192.168.239.110替换成DHCP得到的的，网关192.168.239.33替换成DHCP得到的，192.168.239.175替换成前面部署的跳板机的
 ```text
 network:
   version: 2
