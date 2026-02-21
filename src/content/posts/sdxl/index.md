@@ -48,6 +48,6 @@ HAI的好处是每次开机给一个随机的公网ip，不用自己配置繁琐
 ## 数据集来源
 > 想要什么自己爬
 
-参考 https://blog.songhappy.cn/douyin_spider 和 [YusongXiao/douyin_downloader](https://github.com/YusongXiao/douyin_downloader)
+参考 https://blog.songhappy.cn/douyin_spider 和 [YusongXiao/douyin_downloader](https://github.com/YusongXiao/douyin_downloader)</br>
 LoRA微调还没搞过，本篇待更新
 
